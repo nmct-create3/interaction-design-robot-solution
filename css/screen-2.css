@@ -46,11 +46,12 @@ html {
 
 body {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(auto, 350px);
+  gap: 2rem;
   justify-content: center;
-  padding: 2em;
+  align-content: center;
+  padding: 2rem;
 }
 
 /*
@@ -141,10 +142,7 @@ body {
 */
 
 .c-robot {
-  width: 100%;
-  max-height: 400px;
   fill: var(--global-color-front);
-  margin-bottom: 2rem;
 }
 
 .c-robot__shadow {
@@ -153,35 +151,36 @@ body {
 }
 
 .c-controls {
-  /* --c-controls-button-bgcolor: hsl(0 0% 0% / 0.1); */
+  --c-controls-button-bgcolor: hsl(0 0% 0% / 0.1);
   width: 100%;
-  max-width: 300px;
-  /* display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem; */
+  gap: 1rem;
 }
 
-/* .c-controls__list {
+.c-controls__list {
   display: flex;
-} */
+}
 
 .c-controls__button {
-  /* transition: all 0.1s ease-in-out; */
-  font-family: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  display: inline-block;
+  transition: all 0.1s ease-in-out;
+  font-family: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
+    'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
   font-size: 14px;
   line-height: 1rem;
   text-transform: uppercase;
-  /* padding: 0.5rem 0.75rem;
-  border-radius: 0.25rem; */
+  /* padding: 0.5rem 0.75rem; */
+  padding: 0.5rem 1rem;
+  /* border-radius: 0.25rem; */
+  border-radius: 1rem;
 }
 
 .c-controls__button--pause {
-  /* background-color: var(--c-controls-button-bgcolor); */
-  /* border-radius: 2em; */
-  /* padding: 0.5rem; */
+  background-color: var(--c-controls-button-bgcolor);
+  border-radius: 2em;
+  padding: 0.5rem;
 }
 
 .c-play-icon {
@@ -189,7 +188,6 @@ body {
   width: 1rem;
 }
 
-/* 
 .c-controls__radio:active + .c-controls__button,
 .c-controls__button:active {
   transform: scale(0.9);
@@ -206,13 +204,14 @@ body {
   box-shadow: none;
 }
 
-.c-controls__radio + .c-controls__button {
+/* .c-controls__radio + .c-controls__button {
   opacity: 0.75;
-}
+} */
 
 .c-controls__radio:checked + .c-controls__button {
   opacity: 1;
   background-color: var(--c-controls-button-bgcolor);
+  transform: none;
 }
 
 .c-play-icon--play {
@@ -225,7 +224,7 @@ body {
 
 .is-paused .c-play-icon--pause {
   display: none;
-} */
+}
 
 /*------------------------------------*\
 #UTILITIES

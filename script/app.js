@@ -1,49 +1,89 @@
-// gsap.from('#Robot', { duration: 1, x: 50 })
-// gsap.to('#Robot', { duration: 1, x: 50 })
-// gsap.set('#Robot', { duration: 1, x: 50 })
-// gsap.fromTo('#Robot', { x: -50 }, { duration: 1, x: 50 })
-// gsap.to('#Robot', {
-//   duration: 2,
-//   ease: 'elastic.out(2.5,0.1)',
-//   x: 50,
-// })
-
 let tl = gsap.timeline({
   defaults: {
     duration: 0.75,
-    ease: 'sine.inOut',
+    // ease: 'power1.inOut',
+    ease: 'power2.inOut',
+    yoyoEase: 'sine.out',
   },
   repeat: -1,
   yoyo: true,
-})
+});
 
 tl.set('#Shadow', {
   transformOrigin: '50% 100%',
 })
-  .to('#Robot', {
-    y: -2.5,
+  .set('#Fire', {
+    transformOrigin: '50% 0%',
   })
+  .set('#Arm-left', {
+    transformOrigin: '100% 0%',
+  })
+  .set('#Arm-right', {
+    transformOrigin: '0% 0%',
+  })
+  .fromTo(
+    '#Robot',
+    {
+      y: 2.5,
+    },
+    {
+      y: -5,
+    }
+  )
   .to(
     '#Shadow',
     {
       scale: 0.75,
     },
-    '-=.75',
+    '-=.75'
   )
+  .to(
+    '#Head',
+    {
+      y: 1,
+      yoyoEase: 'power3.out',
+    },
+    '-=.75'
+  )
+  .to(
+    '#Arm-left',
+    {
+      rotate: -3,
+      yoyoEase: 'power3.out',
+    },
+    '-=.75'
+  )
+  .to(
+    '#Arm-right',
+    {
+      rotate: 3,
+      yoyoEase: 'power3.out',
+    },
+    '-=.75'
+  )
+  .to(
+    '#Fire',
+    {
+      scale: 1.15,
+      ease: 'power3.out',
+      yoyoEase: 'power3.out',
+    },
+    '-=.75'
+  );
 
-var btnPause = document.querySelector('.js-pause')
-var btnFast = document.querySelector('.js-fast')
-var btnSlow = document.querySelector('.js-slow')
-var btnNormal = document.querySelector('.js-normal')
+var btnPause = document.querySelector('.js-pause');
+var btnFast = document.querySelector('.js-fast');
+var btnSlow = document.querySelector('.js-slow');
+var btnNormal = document.querySelector('.js-normal');
 
 btnPause.onclick = function () {
-  tl.paused(!tl.paused())
-  btnPause.classList.toggle('is-paused')
-}
+  tl.paused(!tl.paused());
+  btnPause.classList.toggle('is-paused');
+};
 
-btnFast.onclick = () => tl.timeScale(2)
-btnNormal.onclick = () => tl.timeScale(1)
-btnSlow.onclick = () => tl.timeScale(0.5)
+btnFast.onclick = () => tl.timeScale(2);
+btnNormal.onclick = () => tl.timeScale(1);
+btnSlow.onclick = () => tl.timeScale(0.5);
 
 /*
 var btnPause = document.querySelector('.js-pause')
