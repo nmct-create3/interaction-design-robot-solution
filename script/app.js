@@ -1,7 +1,40 @@
+// function robotHover() {
+//   var tl = gsap.timeline();
+//   tl.fromTo(
+//     '#Robot',
+//     {
+//       y: 2.5,
+//     },
+//     {
+//       y: -5,
+//     }
+//   );
+//   return tl;
+// }
+
+// function shadowPulse() {
+//   var tl = gsap.timeline();
+//   tl.to('#Shadow', {
+//     scale: 0.75,
+//   });
+//   return tl;
+// }
+
+// let robotMaster = gsap.timeline({
+//   defaults: {
+//     duration: 0.75,
+//     ease: 'power2.inOut',
+//     yoyoEase: 'sine.out',
+//   },
+//   repeat: -1,
+//   yoyo: true,
+// });
+
+// robotMaster.add(robotHover()).add(shadowPulse(), '<');
+
 let tl = gsap.timeline({
   defaults: {
     duration: 0.75,
-    // ease: 'power1.inOut',
     ease: 'power2.inOut',
     yoyoEase: 'sine.out',
   },
@@ -35,7 +68,7 @@ tl.set('#Shadow', {
     {
       scale: 0.75,
     },
-    '-=.75'
+    '<'
   )
   .to(
     '#Head',
@@ -43,7 +76,7 @@ tl.set('#Shadow', {
       y: 1,
       yoyoEase: 'power3.out',
     },
-    '-=.75'
+    '<'
   )
   .to(
     '#Arm-left',
@@ -51,7 +84,7 @@ tl.set('#Shadow', {
       rotate: -3,
       yoyoEase: 'power3.out',
     },
-    '-=.75'
+    '<'
   )
   .to(
     '#Arm-right',
@@ -59,7 +92,7 @@ tl.set('#Shadow', {
       rotate: 3,
       yoyoEase: 'power3.out',
     },
-    '-=.75'
+    '<'
   )
   .to(
     '#Fire',
@@ -68,7 +101,7 @@ tl.set('#Shadow', {
       ease: 'power3.out',
       yoyoEase: 'power3.out',
     },
-    '-=.75'
+    '<'
   );
 
 var btnPause = document.querySelector('.js-pause');
@@ -86,19 +119,19 @@ btnNormal.onclick = () => tl.timeScale(1);
 btnSlow.onclick = () => tl.timeScale(0.5);
 
 /*
-var btnPause = document.querySelector('.js-pause')
-var btnFast = document.querySelector('.js-fast')
-var btnSlow = document.querySelector('.js-slow')
-var btnNormal = document.querySelector('.js-normal')
+var btnPause = document.querySelector('.js-pause');
+var btnFast = document.querySelector('.js-fast');
+var btnSlow = document.querySelector('.js-slow');
+var btnNormal = document.querySelector('.js-normal');
 
 btnPause.onclick = function () {
-  hoverMaster.paused(!hoverMaster.paused())
-  btnPause.classList.toggle('is-paused')
-}
+  hoverMaster.paused(!hoverMaster.paused());
+  btnPause.classList.toggle('is-paused');
+};
 
-btnFast.onclick = () => hoverMaster.timeScale(3)
-btnNormal.onclick = () => hoverMaster.timeScale(1.5)
-btnSlow.onclick = () => hoverMaster.timeScale(0.75)
+btnFast.onclick = () => hoverMaster.timeScale(3);
+btnNormal.onclick = () => hoverMaster.timeScale(1.5);
+btnSlow.onclick = () => hoverMaster.timeScale(0.75);
 
 let hoverMaster = gsap
   .timeline({ repeat: -1 })
@@ -108,10 +141,10 @@ let hoverMaster = gsap
   .add(hoverFire(), '-=2')
   .add(hoverHead(), '-=2')
   .add(hoverArmLeft(), '-=2')
-  .add(hoverArmRight(), '-=2')
+  .add(hoverArmRight(), '-=2');
 
 function hoverRobot() {
-  let tl = gsap.timeline()
+  let tl = gsap.timeline();
   tl.fromTo(
     '#Robot',
     {
@@ -121,17 +154,17 @@ function hoverRobot() {
       y: -5,
       duration: 0.75,
       ease: 'sine.inOut',
-    },
+    }
   ).to('#Robot', {
     y: 2.5,
     duration: 1.25,
     ease: 'sine.inOut',
-  })
-  return tl
+  });
+  return tl;
 }
 
 function hoverShadow() {
-  let tl = gsap.timeline()
+  let tl = gsap.timeline();
   tl.set('#Shadow', {
     transformOrigin: '50% 100%',
   })
@@ -144,12 +177,12 @@ function hoverShadow() {
       scale: 1,
       duration: 1.25,
       ease: 'sine.inOut',
-    })
-  return tl
+    });
+  return tl;
 }
 
 function hoverFire() {
-  let tl = gsap.timeline()
+  let tl = gsap.timeline();
   tl.set('#Fire', {
     transformOrigin: '50% 0%',
   })
@@ -162,12 +195,12 @@ function hoverFire() {
       scale: 1,
       duration: 1.25,
       ease: 'sine.out',
-    })
-  return tl
+    });
+  return tl;
 }
 
 function hoverHead() {
-  let tl = gsap.timeline()
+  let tl = gsap.timeline();
   tl.to('#Head', {
     y: 1,
     duration: 0.5,
@@ -176,12 +209,12 @@ function hoverHead() {
     y: 0,
     duration: 0.5,
     ease: 'sine.out',
-  })
-  return tl
+  });
+  return tl;
 }
 
 function hoverArmLeft() {
-  let tl = gsap.timeline()
+  let tl = gsap.timeline();
   tl.set('#Arm-left', {
     transformOrigin: '100% 0%',
   })
@@ -194,12 +227,12 @@ function hoverArmLeft() {
       rotate: 0,
       duration: 0.75,
       ease: 'sine.out',
-    })
-  return tl
+    });
+  return tl;
 }
 
 function hoverArmRight() {
-  let tl = gsap.timeline()
+  let tl = gsap.timeline();
   tl.set('#Arm-right', {
     transformOrigin: '0% 0%',
   })
@@ -212,7 +245,7 @@ function hoverArmRight() {
       rotate: 0,
       duration: 0.75,
       ease: 'sine.out',
-    })
-  return tl
+    });
+  return tl;
 }
 */
