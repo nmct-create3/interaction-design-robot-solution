@@ -248,6 +248,7 @@ body {
 .c-play-icon {
   display: block;
   width: 1rem;
+  height: auto;
 }
 
 .c-play-icon--play {
