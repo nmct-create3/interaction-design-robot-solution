@@ -223,11 +223,6 @@ body {
   padding: 0.5rem;
 }
 
-.c-play-icon {
-  display: block;
-  width: 1rem;
-}
-
 .c-controls__radio:active + .c-controls__button,
 .c-controls__button:active {
   transform: scale(0.9);
@@ -244,14 +239,15 @@ body {
   box-shadow: none;
 }
 
-/* .c-controls__radio + .c-controls__button {
-  opacity: 0.75;
-} */
-
 .c-controls__radio:checked + .c-controls__button {
   opacity: 1;
   background-color: var(--c-controls-button-bgcolor);
   transform: none;
+}
+
+.c-play-icon {
+  display: block;
+  width: 1rem;
 }
 
 .c-play-icon--play {
