@@ -154,7 +154,7 @@ body {
   opacity: 0.1;
 }
 
-/* #Shadow {
+.c-robot--css-anim #Shadow {
   transform-origin: 50% 100%;
   animation-name: shadowPulse;
   animation-duration: var(--c-robot-animation-duration);
@@ -163,7 +163,7 @@ body {
   animation-direction: var(--c-robot-animation-direction);
 }
 
-#Robot {
+.c-robot--css-anim #Robot {
   animation-name: robotHover;
   animation-duration: var(--c-robot-animation-duration);
   animation-timing-function: var(--c-robot-animation-timing-function);
@@ -184,7 +184,7 @@ body {
   100% {
     transform: translateY(-2.5%);
   }
-} */
+} 
 
 /*
     Component: Controls
