@@ -179,10 +179,10 @@ body {
 
 @keyframes robotHover {
   0% {
-    transform: translateY(2.5%);
+    transform: translateY(2%);
   }
   100% {
-    transform: translateY(-2.5%);
+    transform: translateY(-2%);
   }
 } 
 
