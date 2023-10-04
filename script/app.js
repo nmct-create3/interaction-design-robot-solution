@@ -75,11 +75,12 @@ var btnFast = document.querySelector('.js-fast');
 var btnSlow = document.querySelector('.js-slow');
 var btnNormal = document.querySelector('.js-normal');
 
-btnPause.onclick = function () {
-  tl.paused(!tl.paused());
-  btnPause.classList.toggle('is-paused');
-};
+// btnPause.onclick = function () {
+//   tl.paused(!tl.paused());
+//   btnPause.classList.toggle('is-paused');
+// };
 
 btnFast.onclick = () => tl.timeScale(2);
 btnNormal.onclick = () => tl.timeScale(1);
 btnSlow.onclick = () => tl.timeScale(0.5);
+btnPause.onclick = () => tl.paused();

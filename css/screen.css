@@ -45,6 +45,7 @@ html {
 }
 
 body {
+  margin: 0;
   min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(auto, 350px);
@@ -114,6 +115,7 @@ body {
 
   /* Corrects inability to style clickable `input` types in iOS */
   -webkit-appearance: none;
+  appearance: none;
 }
 
 /*
@@ -148,6 +150,7 @@ body {
   --c-robot-animation-direction: alternate;
   --c-robot-animation-play-state: running;
   fill: var(--global-color-front);
+  overflow: visible;
 }
 
 .c-robot__shadow {
@@ -190,9 +193,38 @@ body {
   }
 }
 
+
 body:has(input:checked) .c-robot--css-anim {
   --c-robot-animation-play-state: paused;
 }
+
+.c-pauze-label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: hsl(0 0% 0% / 0.1);
+  border-radius: 100%;
+  margin: 0 auto;
+}
+
+.c-pauze-label .c-play-icon--play {
+  display: none;
+}
+
+body:has(input:checked) .c-pauze-label .c-play-icon--play {
+  display: block;
+}
+
+body:has(input:checked) .c-pauze-label .c-play-icon--pause {
+  display: none;
+}
+
+
+
+/* input:checked+.c-robot--css-anim {
+  --c-robot-animation-play-state: paused;
+} */
 
 /*
     Component: Controls
